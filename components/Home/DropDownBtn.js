@@ -30,13 +30,13 @@ export function DropdownBtn() {
           checked={showStatusBarOne}
           onCheckedChange={setShowStatusBarOne}
         >
-          Status Bar
+          ChatGPT Plus
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
           checked={showStatusBarTwo}
           onCheckedChange={setShowStatusBarTwo}
         >
-          Status Bar
+          ChatGPT
         </DropdownMenuCheckboxItem>
         <DropdownMenuSeparator />
         <DropdownMenuLabel>
