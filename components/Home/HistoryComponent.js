@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MdDeleteOutline } from "react-icons/md";
 
-function HistoryComponent({ message }) {
+function HistoryComponent({ message, setMessage, content, setTitle }) {
   const [showDots, setShowDots] = useState(false);
   const [showData, setShowData] = useState(true)
   const [hover, setHover] = useState(false);
@@ -41,6 +41,10 @@ function HistoryComponent({ message }) {
     <div
       onMouseEnter={ShowDots}
       onMouseLeave={HideDots}
+      onClick={()=>{
+        setMessage(content)
+        setTitle(message)
+      }}
       className={`py-2 px-2 ${!showData&&"hidden"} rounded cursor-pointer ${hover&&"bg-gray-200"} text-sm flex justify-between items-center`}
     >
       <p>{SideBarString(message)}</p>

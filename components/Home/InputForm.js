@@ -11,7 +11,8 @@ function InputForm({message, setMessage}) {
   const handleSubmit=(e)=>{
     if(message.length!==0 && message[message.length-1].answer===undefined) return;
     e.preventDefault();
-    setMessage([...message, {question:value}]);
+    let m = [...message, {question:value, answer:"This is dummy answer to above query"}]
+    setMessage(m);
     setValue("")
   }
   return (
