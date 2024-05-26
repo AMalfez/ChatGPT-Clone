@@ -7,9 +7,13 @@ import Answer from "@/components/Home/Answer";
 import "@/css/Scrollbar.css";
 import { useContext, useEffect } from "react";
 import MessageContext from "@/context/MessageContext";
-function Page() {
-  const { setHistory, history, message, setMessage, title, setTitle } =
-    useContext(MessageContext);
+function Home(props) {
+  const { setHistory, history, message, setMessage, title, setTitle, setUser } = useContext(MessageContext);
+
+  useEffect(()=>{
+    setUser(props.user)
+    // console.log(props.user)
+  },[props.user])
 
   useEffect(() => {
     let h = history;
@@ -92,4 +96,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default Home;

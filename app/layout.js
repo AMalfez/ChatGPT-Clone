@@ -2,6 +2,8 @@ import "./globals.css";
 // import { DarkModeTheme } from "@/components/Home/DarkModeTheme";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
+// import GetUser from "@/utils/GetUser";
+
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -14,6 +16,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en">
       <body

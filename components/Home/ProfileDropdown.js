@@ -9,8 +9,12 @@ import {
 import { CiUser, CiSettings, CiLogout } from "react-icons/ci";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { redirect } from "next/navigation";
 
-function ProfileDropdown() {
+function ProfileDropdown({user}) {
+const handleSelect=()=>{
+  redirect("/sign-in")
+}
   return (
     <div className="w-full h-full">
       <DropdownMenu>
@@ -20,11 +24,11 @@ function ProfileDropdown() {
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <span className="ml-4 text-sm">Alfez Mansuri</span>
+            <span className="ml-4 text-sm">{user.name}</span>
           </p>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuLabel>a_mansuri@ch.iitr.ac.in</DropdownMenuLabel>
+          <DropdownMenuLabel>{user.email}</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <div className="flex items-center justify-center">
@@ -44,7 +48,7 @@ function ProfileDropdown() {
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <div className="flex items-center justify-center">
-              <CiLogout className="mr-2" /> Log out
+              <CiLogout className="mr-2" onSelect={handleSelect}/> Log out
             </div>
           </DropdownMenuItem>
         </DropdownMenuContent>

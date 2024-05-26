@@ -8,13 +8,13 @@ import { SevenDayData, ThrityDayData } from "@/utils/DateCompare";
 import ProfileDropdown from "./ProfileDropdown";
 import { useState, useEffect } from "react";
 
-function Sidebar({History, setMessage, setTitle}) {
+function Sidebar({History, setMessage, setTitle, user}) {
   const [SevenDayDatas, setSevenDayDatas] = useState(SevenDayData(History))
   const [ThirtyDayDatas, setThirtyDayDatas] = useState(ThrityDayData(History))
   useEffect(() => {
     setSevenDayDatas(SevenDayData(History))
     setThirtyDayDatas(ThrityDayData(History))
-    console.log(History)
+    console.log(user)
   }, [History])
   
   return (
@@ -59,7 +59,7 @@ function Sidebar({History, setMessage, setTitle}) {
       </div>
 
       <div className="py-2 flex justify-between w-full items-center rounded hover:bg-gray-300 h-14 ml-4 mr-4 z-50">
-        <ProfileDropdown/>
+        {user!==undefined&&(<ProfileDropdown user={user}/>)}
       </div>
     </div>
   );

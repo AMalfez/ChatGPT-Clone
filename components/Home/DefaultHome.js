@@ -1,4 +1,3 @@
-import React from 'react'
 import ChatGPTIcon from "@/public/chatgpt-icon.jpeg";
 import SampleMsg from './SampleMsg';
 import Image from 'next/image';
