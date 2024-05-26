@@ -1,4 +1,3 @@
-'use client'
 import "@/css/Scrollbar.css";
 import Image from "next/image";
 import { FaEdit } from "react-icons/fa";
@@ -6,8 +5,11 @@ import ChatGPTIcon from "@/public/chatgpt-icon.jpeg";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {DummyHistory} from "@/DummyHistory";
 import HistoryComponent from "./HistoryComponent";
+import { SevenDayData, ThrityDayData } from "@/utils/DateCompare";
 
 function Sidebar() {
+  const SevenDayDatas = SevenDayData(DummyHistory)
+  const ThirtyDayDatas = ThrityDayData(DummyHistory)
   return (
     <div
       className="overflow-y-scroll overflow-x-hidden h-screen flex flex-col items-center relative"
@@ -31,8 +33,17 @@ function Sidebar() {
       <div className="w-full h-full">
         <div className="ml-5 mt-7">
           <p className="py-2 px-2 rounded text-xs text-gray-400 font-medium">Previous 7 Days</p>
-          {DummyHistory.map(h=>(
-            <HistoryComponent message={h.message}/>
+          {SevenDayDatas.map(h=> h!==undefined && (
+            <HistoryComponent key={h.message} message={h.message}/>
+          ))}
+          
+        </div>
+      </div>
+      <div className="w-full h-full">
+        <div className="ml-5 mt-7">
+          <p className="py-2 px-2 rounded text-xs text-gray-400 font-medium">Previous 30 Days</p>
+          {ThirtyDayDatas.map(h=> h!==undefined && (
+            <HistoryComponent key={h.message} message={h.message}/>
           ))}
           
         </div>
