@@ -2,14 +2,13 @@ import "@/css/Scrollbar.css";
 import Image from "next/image";
 import { FaEdit } from "react-icons/fa";
 import ChatGPTIcon from "@/public/chatgpt-icon.jpeg";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {DummyHistory} from "@/DummyHistory";
 import HistoryComponent from "./HistoryComponent";
 import { SevenDayData, ThrityDayData } from "@/utils/DateCompare";
+import ProfileDropdown from "./ProfileDropdown";
 
-function Sidebar() {
-  const SevenDayDatas = SevenDayData(DummyHistory)
-  const ThirtyDayDatas = ThrityDayData(DummyHistory)
+function Sidebar({History, setHistory}) {
+  const SevenDayDatas = SevenDayData(History)
+  const ThirtyDayDatas = ThrityDayData(History)
   return (
     <div
       className="bg-gray-50 overflow-x-hidden h-screen flex flex-col items-center pl-2 pr-2 pb-2"
@@ -47,14 +46,8 @@ function Sidebar() {
       
       </div>
 
-      <div className="py-2 flex justify-between w-full rounded items-center h-14 ml-4 mr-4 z-50 cursor-pointer bg-gray-50 hover:bg-gray-300">
-        <p className="flex ml-4 items-center">
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
-          <span className="ml-4 text-sm">Alfez Mansuri</span>
-        </p>
+      <div className="py-2 flex justify-between w-full items-center rounded hover:bg-gray-300 h-14 ml-4 mr-4 z-50">
+        <ProfileDropdown/>
       </div>
     </div>
   );

@@ -48,7 +48,7 @@ function HistoryComponent({ message }) {
       <div>
         {/* <DropdownMenu onOpenChange={(open)=>handleOpen(open)}> */}
         <DropdownMenu>
-          <DropdownMenuTrigger>
+          <DropdownMenuTrigger className="outline-none">
             <BsThreeDots className={`outline-none ${dotsHover&&"text-gray-400"} text-md hover:text-gray-400`} />
           </DropdownMenuTrigger>
           <DropdownMenuContent>

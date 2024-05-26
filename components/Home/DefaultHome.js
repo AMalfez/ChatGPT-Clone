@@ -3,7 +3,7 @@ import ChatGPTIcon from "@/public/chatgpt-icon.jpeg";
 import SampleMsg from './SampleMsg';
 import Image from 'next/image';
 
-function DefaultHome() {
+function DefaultHome({message, setMessage}) {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <Image
@@ -13,7 +13,7 @@ function DefaultHome() {
             src={ChatGPTIcon}
           />
         <p className="text-2xl font-medium mt-5 mb-10">How can I help you today?</p>
-        <SampleMsg/>
+        <SampleMsg message={message} setMessage={setMessage}/>
       </div>
   )
 }
